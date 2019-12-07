@@ -3,6 +3,7 @@ package cn.chenzw.mybatis.ext2.page;
 import cn.chenzw.mybatis.ext2.page.entity.User;
 import cn.chenzw.mybatis.ext2.page.repository.UserMapper;
 import cn.chenzw.mybatis.ext2.page.support.PageParam;
+import cn.chenzw.mybatis.ext2.page.util.PageUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +39,14 @@ public class MybatisPageTests {
         Assert.assertEquals("[User{id=11, name='张三5'}, User{id=12, name='张三5'}, User{id=13, name='张三5'}, User{id=14, name='张三5'}, User{id=15, name='张三5'}, User{id=16, name='张三5'}, User{id=17, name='张三5'}, User{id=18, name='张三5'}, User{id=19, name='张三5'}, User{id=20, name='张三5'}]", users.toString());
 
         Assert.assertEquals(40, pageParam.getTotalRows());
+
+        // 计算总页数
+        int totalPage = PageUtils.countTotalPage(pageParam);
+        Assert.assertEquals(4, totalPage);
+
+        // 计算起始页码
+        int startOffset = PageUtils.countStartOffset(pageParam);
+        Assert.assertEquals(0, startOffset);
 
     }
 }

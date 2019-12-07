@@ -2,6 +2,10 @@
 
 Mybatis扩展
 
+## 文档
+
+[中文文档](https://otary.github.io/mybatis-ext2/#/)
+
 ## 功能
  - [x] 分页
  - [x] 慢SQL输出
@@ -40,6 +44,8 @@ public class MybatisConfig {
 ```
 
 ``` java
+import cn.chenzw.mybatis.ext2.page.support.Pageable;
+
 public interface UserMapper {
 
     ...
@@ -50,6 +56,9 @@ public interface UserMapper {
 ```
 
 ``` java
+import cn.chenzw.mybatis.ext2.page.support.PageParam;
+import cn.chenzw.mybatis.ext2.page.util.PageUtils;
+
 @Test
 public void testListByPage() {
     PageParam pageParam = new PageParam(1, 10);
@@ -59,6 +68,12 @@ public void testListByPage() {
     pageParam.getTotalRows();  // => 40
     pageParam.getLimit(); // =>10
     pageParam.getOffset(); // => 1
+    
+     // 计算总页数
+     int totalPage = PageUtils.countTotalPage(pageParam);  // => 4
+
+     // 计算起始页码
+     int startOffset = PageUtils.countStartOffset(pageParam);   // => 0
 }
 ```
 
