@@ -6,6 +6,8 @@
     <packaging>jar</packaging>
     <version>1.0.0</version>
     <url>http://maven.apache.org</url>
+    <name>mybatis-ext2</name>
+    <description>mybatis extension</description>
 
     <properties>
         <!--指定Maven用什么编码来读取源码及文档 -->
@@ -185,6 +187,13 @@
         </developer>
     </developers>
 
+    <!-- 开源地址 -->
+    <scm>
+        <connection>scm:git:git@github.com:otary/mybatis-ext2.git</connection>
+        <developerConnection>scm:git:git@github.com:otary/mybatis-ext2.git</developerConnection>
+        <url>git@github.com:otary/mybatis-ext2.git</url>
+    </scm>
+
     <!-- 发布配置 -->
     <distributionManagement>
         <repository>
@@ -197,5 +206,21 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                    <check/>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
