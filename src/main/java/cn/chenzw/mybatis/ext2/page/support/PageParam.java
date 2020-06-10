@@ -7,27 +7,27 @@ package cn.chenzw.mybatis.ext2.page.support;
  */
 public class PageParam implements Pageable {
 
-    private int offset = 0;
-    private int limit = 25;
-    private long total = -1;
+    private Integer offset = 0;
+    private Integer limit = 25;
+    private Long total = -1L;
 
-    public PageParam(int offset, int limit) {
+    public PageParam(Integer offset, Integer limit) {
         this.offset = offset;
         this.limit = limit;
     }
 
     @Override
-    public int getOffset() {
+    public Integer getOffset() {
         return offset;
     }
 
     @Override
-    public int getLimit() {
+    public Integer getLimit() {
         return limit;
     }
 
     @Override
-    public long getTotalRows() {
+    public Long getTotalRows() {
         return total;
     }
 
