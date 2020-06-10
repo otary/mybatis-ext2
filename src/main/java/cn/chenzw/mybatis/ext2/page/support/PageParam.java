@@ -31,6 +31,15 @@ public class PageParam implements Pageable {
         return total;
     }
 
+    public void withDefault(int offset, int limit) {
+        if(this.offset == null) {
+            this.offset = offset;
+        }
+        if (this.limit == null) {
+            this.limit = limit;
+        }
+    }
+
     @Override
     public String toString() {
         return "PageParam{" +
